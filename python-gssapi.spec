@@ -4,13 +4,13 @@
 %global with_python3 1
 
 Name:           python-gssapi
-Version:        1.1.0
+Version:        1.1.1
 Release:        1%{?dist}
 Summary:        Python Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
 License:        ISC
 URL:            https://github.com/pythongssapi/python-gssapi
-Source0:        https://github.com/pythongssapi/%{name}/releases/download/v%{version}/v%{version}.tar.gz
+Source0:        https://github.com/pythongssapi/%{name}/releases/download/v%{version}/%{name}-%{version}.tar.gz
 Patch1:         python-gssapi.dont-require-tox.patch
 
 BuildRequires:  python2-devel
@@ -130,5 +130,8 @@ popd
 
 
 %changelog
+* Tue Apr 28 2015 Simo Sorce <simo@redhat.com> - 1.1.1-1
+- New minor release.
+
 * Thu Feb 19 2015 Solly Ross <sross@redhat.com> - 1.1.0-1
 - Initial Packaging
