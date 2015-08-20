@@ -4,20 +4,20 @@
 %global with_python3 1
 
 Name:           python-gssapi
-Version:        1.1.1
+Version:        1.1.2
 Release:        1%{?dist}
 Summary:        Python Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
 License:        ISC
 URL:            https://github.com/pythongssapi/python-gssapi
 Source0:        https://github.com/pythongssapi/%{name}/releases/download/v%{version}/%{name}-%{version}.tar.gz
-Patch1:         python-gssapi.dont-require-tox.patch
 
 BuildRequires:  python2-devel
 BuildRequires:  krb5-devel >= 1.10
 BuildRequires:  krb5-libs >= 1.10
 BuildRequires:  Cython >= 0.21
 BuildRequires:  python-setuptools
+BuildRequires:  python-tox
 Requires:       krb5-libs >= 1.10
 Requires:       python-six
 Requires:       python-enum34
@@ -66,7 +66,6 @@ RFC 2743, as well as multiple extensions.
 
 %prep
 %setup -q
-%patch1
 
 %if 0%{?with_python3}
 rm -rf %{py3dir}
@@ -130,6 +129,11 @@ popd
 
 
 %changelog
+* Thu Aug 20 2015 Simo Sorce <simo@redhat.com> - 1.1.2-1
+- New minor release.
+- Resolves #1254458
+- Fixes a crash bug when inquiring incomplete security contexts
+
 * Tue Apr 28 2015 Simo Sorce <simo@redhat.com> - 1.1.1-1
 - New minor release.
 
