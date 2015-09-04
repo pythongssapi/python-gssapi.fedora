@@ -4,7 +4,7 @@
 %global with_python3 1
 
 Name:           python-gssapi
-Version:        1.1.2
+Version:        1.1.3
 Release:        1%{?dist}
 Summary:        Python Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
@@ -129,6 +129,9 @@ popd
 
 
 %changelog
+* Fri Sep 04 2015 Robbie Harwood <rharwood@redhat.com> - 1.1.3-1
+- New upstream minor release
+
 * Thu Aug 20 2015 Simo Sorce <simo@redhat.com> - 1.1.2-1
 - New minor release.
 - Resolves #1254458
