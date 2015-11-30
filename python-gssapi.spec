@@ -4,8 +4,8 @@
 %global with_python3 1
 
 Name:           python-gssapi
-Version:        1.1.3
-Release:        2%{?dist}
+Version:        1.1.4
+Release:        1%{?dist}
 Summary:        Python Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
 License:        ISC
@@ -54,7 +54,6 @@ Summary:        Python 3 Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
 Requires:       krb5-libs >= 1.10
 Requires:       python3-six
-Requires:       python3-enum34
 Requires:       python3-decorator
 
 %description -n python3-gssapi
@@ -129,6 +128,10 @@ popd
 
 
 %changelog
+* Mon Nov 30 2015 Robbie Harwood <rharwood@redhat.com> - 1.1.4-1
+- New upstream version 1.1.4
+- Resolves #1286458
+
 * Wed Nov 04 2015 Robert Kuska <rkuska@redhat.com> - 1.1.3-2
 - Rebuilt for Python3.5 rebuild
 
