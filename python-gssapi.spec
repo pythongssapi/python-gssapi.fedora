@@ -5,7 +5,7 @@
 
 Name:           python-gssapi
 Version:        1.1.4
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Python Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
 License:        ISC
@@ -128,6 +128,9 @@ popd
 
 
 %changelog
+* Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 1.1.4-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
+
 * Mon Nov 30 2015 Robbie Harwood <rharwood@redhat.com> - 1.1.4-1
 - New upstream version 1.1.4
 - Resolves #1286458
