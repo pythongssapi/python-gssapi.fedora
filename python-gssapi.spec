@@ -4,7 +4,7 @@
 %global with_python3 1
 
 Name:           python-gssapi
-Version:        1.1.3
+Version:        1.2.0
 Release:        1%{?dist}
 Summary:        Python Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
@@ -54,7 +54,7 @@ Summary:        Python 3 Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
 Requires:       krb5-libs >= 1.10
 Requires:       python3-six
-Requires:       python3-enum34
+Requires:       python3 >= 3.4
 Requires:       python3-decorator
 
 %description -n python3-gssapi
@@ -129,6 +129,9 @@ popd
 
 
 %changelog
+* Thu Mar 03 2016 Robbie Harwood <rharwood@redhat.com. - 1.2.0-1
+- New upstream release 1.2.0 fixes delegated creds issue
+
 * Fri Sep 04 2015 Robbie Harwood <rharwood@redhat.com> - 1.1.3-1
 - New upstream minor release
 
