@@ -5,12 +5,15 @@
 
 Name:           python-gssapi
 Version:        1.2.0
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Python Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
 License:        ISC
 URL:            https://github.com/pythongssapi/python-gssapi
 Source0:        https://github.com/pythongssapi/%{name}/releases/download/v%{version}/%{name}-%{version}.tar.gz
+
+# Patches
+Patch0: Prevent-GSSError-_display_status-infinite-recursion.patch
 
 BuildRequires:  python2-devel
 BuildRequires:  krb5-devel >= 1.10
@@ -22,6 +25,9 @@ Requires:       krb5-libs >= 1.10
 Requires:       python-six
 Requires:       python-enum34
 Requires:       python-decorator
+
+# For autosetup
+BuildRequires: git
 
 %if 0%{?run_tests}
 BuildRequires:  python-nose
@@ -64,7 +70,7 @@ RFC 2743, as well as multiple extensions.
 %endif
 
 %prep
-%setup -q
+%autosetup -S git -n %{name}-%{version}
 
 %if 0%{?with_python3}
 rm -rf %{py3dir}
@@ -128,6 +134,10 @@ popd
 
 
 %changelog
+* Tue Apr 04 2017 Robbie Harwood <rharwood@redhat.com> 1.2.0-5
+- Fix problem where gss_display_status can infinite loop
+- Move to autosetup and rpm-git-tree
+
 * Sat Feb 11 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.2.0-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
 
