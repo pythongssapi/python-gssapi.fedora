@@ -5,7 +5,7 @@
 
 Name:           python-gssapi
 Version:        1.2.0
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Python Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
 License:        ISC
@@ -134,6 +134,9 @@ popd
 
 
 %changelog
+* Thu Jul 27 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.2.0-6
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
+
 * Tue Apr 04 2017 Robbie Harwood <rharwood@redhat.com> 1.2.0-5
 - Fix problem where gss_display_status can infinite loop
 - Move to autosetup and rpm-git-tree
