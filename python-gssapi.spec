@@ -5,7 +5,7 @@
 
 Name:           python-gssapi
 Version:        1.2.0
-Release:        7%{?dist}
+Release:        8%{?dist}
 Summary:        Python Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
 License:        ISC
@@ -21,10 +21,6 @@ BuildRequires:  krb5-libs >= 1.10
 BuildRequires:  Cython >= 0.21
 BuildRequires:  python-setuptools
 BuildRequires:  python-tox
-Requires:       krb5-libs >= 1.10
-Requires:       python-six
-Requires:       python-enum34
-Requires:       python-decorator
 
 # For autosetup
 BuildRequires: git
@@ -48,11 +44,23 @@ BuildRequires:  python3-should-be
 %endif
 %endif
 
-%description
-A set of Python bindings to the GSSAPI C library providing both
-a high-level pythonic interfaces and a low-level interfaces
-which more closely matches RFC 2743.  Includes support for
+%global _description\
+A set of Python bindings to the GSSAPI C library providing both\
+a high-level pythonic interfaces and a low-level interfaces\
+which more closely matches RFC 2743.  Includes support for\
 RFC 2743, as well as multiple extensions.
+
+%description %_description
+
+%package -n python2-gssapi
+Summary: %summary
+Requires:       krb5-libs >= 1.10
+Requires:       python-six
+Requires:       python-enum34
+Requires:       python-decorator
+%{?python_provide:%python_provide python2-gssapi}
+
+%description -n python2-gssapi %_description
 
 %if 0%{?with_python3}
 %package -n python3-gssapi
@@ -120,7 +128,7 @@ popd
 %endif
 
 
-%files
+%files -n python2-gssapi
 %doc README.txt
 %license LICENSE.txt
 %{python2_sitearch}/*
@@ -134,6 +142,10 @@ popd
 
 
 %changelog
+* Sat Aug 19 2017 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 1.2.0-8
+- Python 2 binary package renamed to python2-gssapi
+  See https://fedoraproject.org/wiki/FinalizingFedoraSwitchtoPython3
+
 * Thu Aug 03 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.2.0-7
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Binutils_Mass_Rebuild
 
