@@ -4,8 +4,8 @@
 %global with_python3 1
 
 Name:           python-gssapi
-Version:        1.2.0
-Release:        8%{?dist}
+Version:        1.3.0
+Release:        1%{?dist}
 Summary:        Python Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
 License:        ISC
@@ -13,7 +13,6 @@ URL:            https://github.com/pythongssapi/python-gssapi
 Source0:        https://github.com/pythongssapi/%{name}/releases/download/v%{version}/%{name}-%{version}.tar.gz
 
 # Patches
-Patch0: Prevent-GSSError-_display_status-infinite-recursion.patch
 
 BuildRequires:  python2-devel
 BuildRequires:  krb5-devel >= 1.10
@@ -142,6 +141,9 @@ popd
 
 
 %changelog
+* Fri Dec 01 2017 Robbie Harwood <rharwood@redhat.com> - 1.3.0-1
+- New upstream release v1.3.0
+
 * Sat Aug 19 2017 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 1.2.0-8
 - Python 2 binary package renamed to python2-gssapi
   See https://fedoraproject.org/wiki/FinalizingFedoraSwitchtoPython3
