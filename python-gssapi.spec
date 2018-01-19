@@ -5,7 +5,7 @@
 
 Name:           python-gssapi
 Version:        1.3.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Python Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
 License:        ISC
@@ -17,16 +17,16 @@ Source0:        https://github.com/pythongssapi/%{name}/releases/download/v%{ver
 BuildRequires:  python2-devel
 BuildRequires:  krb5-devel >= 1.10
 BuildRequires:  krb5-libs >= 1.10
-BuildRequires:  Cython >= 0.21
-BuildRequires:  python-setuptools
-BuildRequires:  python-tox
+BuildRequires:  python2-Cython >= 0.21
+BuildRequires:  python2-setuptools
+BuildRequires:  python2-tox
 
 # For autosetup
 BuildRequires: git
 
 %if 0%{?run_tests}
-BuildRequires:  python-nose
-BuildRequires:  python-nose-parameterized
+BuildRequires:  python2-nose
+BuildRequires:  python2-nose-parameterized
 BuildRequires:  python-shouldbe
 BuildRequires:  krb5-server >= 1.10
 %endif
@@ -54,9 +54,9 @@ RFC 2743, as well as multiple extensions.
 %package -n python2-gssapi
 Summary: %summary
 Requires:       krb5-libs >= 1.10
-Requires:       python-six
-Requires:       python-enum34
-Requires:       python-decorator
+Requires:       python2-six
+Requires:       python2-enum34
+Requires:       python2-decorator
 %{?python_provide:%python_provide python2-gssapi}
 
 %description -n python2-gssapi %_description
@@ -141,6 +141,10 @@ popd
 
 
 %changelog
+* Fri Jan 19 2018 Iryna Shcherbina <ishcherb@redhat.com> - 1.3.0-2
+- Update Python 2 dependency declarations to new packaging standards
+  (See https://fedoraproject.org/wiki/FinalizingFedoraSwitchtoPython3)
+
 * Fri Dec 01 2017 Robbie Harwood <rharwood@redhat.com> - 1.3.0-1
 - New upstream release v1.3.0
 
