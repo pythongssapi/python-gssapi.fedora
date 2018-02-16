@@ -4,8 +4,8 @@
 %global with_python3 1
 
 Name:           python-gssapi
-Version:        1.3.0
-Release:        3%{?dist}
+Version:        1.4.1
+Release:        1%{?dist}
 Summary:        Python Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
 License:        ISC
@@ -141,6 +141,9 @@ popd
 
 
 %changelog
+* Fri Feb 16 2018 Robbie Harwood <rharwood@redhat.com> - 1.4.1-1
+- Prepare for release 1.4.1
+
 * Fri Feb 09 2018 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.0-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
 
