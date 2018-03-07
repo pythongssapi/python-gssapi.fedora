@@ -5,7 +5,7 @@
 
 Name:           python-gssapi
 Version:        1.4.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Python Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
 License:        ISC
@@ -20,6 +20,7 @@ BuildRequires:  krb5-libs >= 1.10
 BuildRequires:  python2-Cython >= 0.21
 BuildRequires:  python2-setuptools
 BuildRequires:  python2-tox
+BuildRequires:  gcc
 
 # For autosetup
 BuildRequires: git
@@ -141,6 +142,9 @@ popd
 
 
 %changelog
+* Wed Mar 07 2018 Robbie Harwood <rharwood@redhat.com> - 1.4.1-2
+- Add gcc to build-deps
+
 * Fri Feb 16 2018 Robbie Harwood <rharwood@redhat.com> - 1.4.1-1
 - Prepare for release 1.4.1
 
