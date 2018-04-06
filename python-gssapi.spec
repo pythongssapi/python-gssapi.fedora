@@ -4,8 +4,8 @@
 %global with_python3 1
 
 Name:           python-gssapi
-Version:        1.4.1
-Release:        2%{?dist}
+Version:        1.5.0
+Release:        1%{?dist}
 Summary:        Python Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
 License:        ISC
@@ -142,6 +142,9 @@ popd
 
 
 %changelog
+* Fri Apr 06 2018 Robbie Harwood <rharwood@redhat.com> - 1.5.0-1
+- Prepare for release 1.5.0
+
 * Wed Mar 07 2018 Robbie Harwood <rharwood@redhat.com> - 1.4.1-2
 - Add gcc to build-deps
 
