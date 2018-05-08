@@ -5,7 +5,7 @@
 
 Name:           python-gssapi
 Version:        1.5.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Python Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
 License:        ISC
@@ -19,13 +19,13 @@ BuildRequires:  krb5-devel >= 1.10
 BuildRequires:  krb5-libs >= 1.10
 BuildRequires:  python2-Cython >= 0.21
 BuildRequires:  python2-setuptools
-BuildRequires:  python2-tox
 BuildRequires:  gcc
 
 # For autosetup
 BuildRequires: git
 
 %if 0%{?run_tests}
+BuildRequires:  %{_bindir}/tox
 BuildRequires:  python2-nose
 BuildRequires:  python2-nose-parameterized
 BuildRequires:  python-shouldbe
@@ -142,6 +142,9 @@ popd
 
 
 %changelog
+* Tue May 08 2018 Robbie Harwood <rharwood@redhat.com> - 1.5.0-2
+- Fix tox dependency
+
 * Fri Apr 06 2018 Robbie Harwood <rharwood@redhat.com> - 1.5.0-1
 - Prepare for release 1.5.0
 
