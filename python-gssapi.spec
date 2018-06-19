@@ -5,7 +5,7 @@
 
 Name:           python-gssapi
 Version:        1.5.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Python Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
 License:        ISC
@@ -142,6 +142,9 @@ popd
 
 
 %changelog
+* Tue Jun 19 2018 Miro Hrončok <mhroncok@redhat.com> - 1.5.0-3
+- Rebuilt for Python 3.7
+
 * Tue May 08 2018 Robbie Harwood <rharwood@redhat.com> - 1.5.0-2
 - Fix tox dependency
 
