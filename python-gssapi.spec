@@ -5,7 +5,7 @@
 
 Name:           python-gssapi
 Version:        1.5.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Python Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
 License:        ISC
@@ -142,6 +142,9 @@ popd
 
 
 %changelog
+* Sat Feb 02 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.5.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
 * Wed Jul 18 2018 Robbie Harwood <rharwood@redhat.com> - 1.5.1-1
 - Remove warning about collections ABCs on python3.7
 - Resolves: #1594834
