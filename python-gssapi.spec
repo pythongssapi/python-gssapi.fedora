@@ -91,7 +91,7 @@ CFLAGS="%{optflags}" %{__python2} setup.py build
 
 %if 0%{?with_python3}
 pushd %{py3dir}
-CFLAGS="%{optflags}" %{__python3} setup.py build
+%py3_build
 popd
 %endif
 
@@ -99,7 +99,7 @@ popd
 %install
 %if 0%{?with_python3}
 pushd %{py3dir}
-%{__python3} setup.py install --skip-build --root %{buildroot}
+%py3_install
 
 # fix permissions on shared objects (mock seems to set them
 # to 0775, whereas a normal build gives 0755)
