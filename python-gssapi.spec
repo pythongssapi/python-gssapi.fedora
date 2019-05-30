@@ -1,11 +1,8 @@
 # NOTE: tests are disabled since should_be has not yet been packaged.
-# To re-enable, uncomment the 'check' section and lines marked 'for tests'
-%global run_tests 0
-%global with_python3 1
 
 Name:           python-gssapi
 Version:        1.5.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Python Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
 License:        ISC
@@ -14,35 +11,15 @@ Source0:        https://github.com/pythongssapi/%{name}/releases/download/v%{ver
 
 # Patches
 
-BuildRequires:  python2-devel
 BuildRequires:  krb5-devel >= 1.10
 BuildRequires:  krb5-libs >= 1.10
-BuildRequires:  python2-Cython >= 0.21
-BuildRequires:  python2-setuptools
 BuildRequires:  gcc
-
-# For autosetup
-BuildRequires: git
-
-%if 0%{?run_tests}
-BuildRequires:  %{_bindir}/tox
-BuildRequires:  python2-nose
-BuildRequires:  python2-nose-parameterized
-BuildRequires:  python-shouldbe
-BuildRequires:  krb5-server >= 1.10
-%endif
-
-%if 0%{?with_python3}
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 BuildRequires:  python3-Cython
 
-%if 0%{?run_tests}
-BuildRequires:  python3-nose
-BuildRequires:  python3-nose-parameterized
-BuildRequires:  python3-should-be
-%endif
-%endif
+# For autosetup
+BuildRequires: git
 
 %global _description\
 A set of Python bindings to the GSSAPI C library providing both\
@@ -52,17 +29,6 @@ RFC 2743, as well as multiple extensions.
 
 %description %_description
 
-%package -n python2-gssapi
-Summary: %summary
-Requires:       krb5-libs >= 1.10
-Requires:       python2-six
-Requires:       python2-enum34
-Requires:       python2-decorator
-%{?python_provide:%python_provide python2-gssapi}
-
-%description -n python2-gssapi %_description
-
-%if 0%{?with_python3}
 %package -n python3-gssapi
 Summary:        Python 3 Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
@@ -70,35 +36,17 @@ Requires:       krb5-libs >= 1.10
 Requires:       python3-six
 Requires:       python3-decorator
 
-%description -n python3-gssapi
-A set of Python 3 bindings to the GSSAPI C library providing both
-a high-level pythonic interfaces and a low-level interfaces
-which more closely matches RFC 2743.  Includes support for
-RFC 2743, as well as multiple extensions.
-%endif
+%description -n python3-gssapi %_description
+
+%{?python_provide:%python_provide python3-gssapi}
 
 %prep
 %autosetup -S git -n %{name}-%{version}
 
-%if 0%{?with_python3}
-rm -rf %{py3dir}
-cp -a . %{py3dir}
-%endif
-
-
 %build
-CFLAGS="%{optflags}" %{__python2} setup.py build
-
-%if 0%{?with_python3}
-pushd %{py3dir}
 %py3_build
-popd
-%endif
-
 
 %install
-%if 0%{?with_python3}
-pushd %{py3dir}
 %py3_install
 
 # fix permissions on shared objects (mock seems to set them
@@ -106,42 +54,15 @@ pushd %{py3dir}
 find %{buildroot}%{python3_sitearch}/gssapi -name '*.so' \
     -exec chmod 0755 {} \;
 
-popd
-%endif
-
-%{__python2} setup.py install --skip-build --root %{buildroot}
-
-# fix permissions on shared objects (mock seems to set them
-# to 0775, whereas a normal build gives 0755)
-find %{buildroot}%{python2_sitearch}/gssapi -name '*.so' \
-    -exec chmod 0755 {} \;
-
-%check
-%if 0%{?run_tests}
-%{__python2} setup.py nosetests
-
-%if 0%{?with_python3}
-pushd %{py3dir}
-%{__python3} setup.py nosetests
-popd
-%endif
-%endif
-
-
-%files -n python2-gssapi
-%doc README.txt
-%license LICENSE.txt
-%{python2_sitearch}/*
-
-%if 0%{?with_python3}
 %files -n python3-gssapi
 %doc README.txt
 %license LICENSE.txt
 %{python3_sitearch}/*
-%endif
-
 
 %changelog
+* Thu May 30 2019 Robbie Harwood <rharwood@redhat.com> - 1.5.1-3
+- Drop python2 subpackage
+
 * Sat Feb 02 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.5.1-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
 
