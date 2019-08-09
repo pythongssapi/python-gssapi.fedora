@@ -4,8 +4,8 @@
 %global with_python3 1
 
 Name:           python-gssapi
-Version:        1.5.1
-Release:        4%{?dist}
+Version:        1.6.1
+Release:        1%{?dist}
 Summary:        Python Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
 License:        ISC
@@ -142,7 +142,10 @@ popd
 
 
 %changelog
-* Thu Jul 24 2019 Robbie Harwood <rharwood@redhat.com> - 1.5.1-4
+* Fri Aug 09 2019 Robbie Harwood <rharwood@redhat.com> - 1.6.1-1
+- New upstream version: 1.6.1
+
+* Thu Jul 25 2019 Robbie Harwood <rharwood@redhat.com> - 1.5.1-4
 - Restore python2 subpackage for fc31 by request of offlineimap
 
 * Thu May 30 2019 Robbie Harwood <rharwood@redhat.com> - 1.5.1-3
