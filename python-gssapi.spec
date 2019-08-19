@@ -2,7 +2,7 @@
 
 Name:           python-gssapi
 Version:        1.6.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Python Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
 License:        ISC
@@ -60,6 +60,9 @@ find %{buildroot}%{python3_sitearch}/gssapi -name '*.so' \
 %{python3_sitearch}/*
 
 %changelog
+* Mon Aug 19 2019 Miro Hrončok <mhroncok@redhat.com> - 1.6.1-3
+- Rebuilt for Python 3.8
+
 * Wed Aug 14 2019 Robbie Harwood <rharwood@redhat.com> - 1.6.1-2
 - Drop python2 subpackage for fc32+
 
