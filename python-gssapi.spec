@@ -1,8 +1,8 @@
 # NOTE: tests are disabled since should_be has not yet been packaged.
 
 Name:           python-gssapi
-Version:        1.6.1
-Release:        5%{?dist}
+Version:        1.6.2
+Release:        1%{?dist}
 Summary:        Python Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
 License:        ISC
@@ -60,6 +60,9 @@ find %{buildroot}%{python3_sitearch}/gssapi -name '*.so' \
 %{python3_sitearch}/*
 
 %changelog
+* Tue Feb 25 2020 Robbie Harwood <rharwood@redhat.com> - 1.6.2-1
+- New upstream release (1.6.2)
+
 * Thu Jan 30 2020 Fedora Release Engineering <releng@fedoraproject.org> - 1.6.1-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
 
