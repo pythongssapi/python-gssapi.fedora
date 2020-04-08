@@ -1,7 +1,7 @@
 # NOTE: tests are disabled since should_be has not yet been packaged.
 
 Name:           python-gssapi
-Version:        1.6.4
+Version:        1.6.5
 Release:        1%{?dist}
 Summary:        Python Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
@@ -60,6 +60,9 @@ find %{buildroot}%{python3_sitearch}/gssapi -name '*.so' \
 %{python3_sitearch}/*
 
 %changelog
+* Wed Apr 08 2020 Robbie Harwood <rharwood@redhat.com> - 1.6.5-1
+- New upstream release (1.6.5)
+
 * Tue Apr 07 2020 Robbie Harwood <rharwood@redhat.com> - 1.6.4-1
 - New upstream release (1.6.4)
 - Resolves: #1821889
