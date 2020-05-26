@@ -2,7 +2,7 @@
 
 Name:           python-gssapi
 Version:        1.6.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Python Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
 License:        ISC
@@ -60,6 +60,9 @@ find %{buildroot}%{python3_sitearch}/gssapi -name '*.so' \
 %{python3_sitearch}/*
 
 %changelog
+* Tue May 26 2020 Miro Hrončok <mhroncok@redhat.com> - 1.6.5-2
+- Rebuilt for Python 3.9
+
 * Wed Apr 08 2020 Robbie Harwood <rharwood@redhat.com> - 1.6.5-1
 - New upstream release (1.6.5)
 
